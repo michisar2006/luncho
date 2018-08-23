@@ -2,11 +2,11 @@ package controllers;
 
 import play.mvc.*;
 
+import views.html.recipes.*;
 
 public class RecipeController extends Controller {
 
-    public Result retrieve(String uuid){
-        return ok("The recipe of some fried eggs with bacon ");
+    public Result retrieve(String id) {
+        return ok(recipe.render(id));
     }
-
 }
