@@ -18,4 +18,7 @@ public class HomeController extends Controller {
         return ok(views.html.index.render());
     }
 
+    public Result about(){
+        return ok("Esto es luncho, distribuye tareas y almuerza en el trabajo");
+    }
 }
