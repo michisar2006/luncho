@@ -1,0 +1,13 @@
+@(recipes: Set[Recipe])
+
+<h1>Recetas:</h1>
+
+<ul>
+    @for(recipe <- recipes){
+        <li>
+            <h3>@recipe.name</h3>
+            <p>@recipe.description</p>
+        </li>
+    }
+</ul>
+

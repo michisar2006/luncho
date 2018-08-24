@@ -2,16 +2,19 @@ package controllers;
 
 import play.mvc.*;
 
+import models.Recipe;
 import views.html.recipes.*;
+import java.util.Set;
 
 public class RecipeController extends Controller {
 
     public Result index(){
-        return TODO;
+        Set<Recipe> recipes = Recipe.getAll();
+        return ok(index.render(recipes));
     }
 
     public Result retrieve(Integer id) {
-        return ok(recipe.render("hola"));
+        return TODO;
     }
 
     public Result create(){
