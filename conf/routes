@@ -9,9 +9,13 @@ GET     /                           controllers.HomeController.index
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 # Gets an specific recipe
-GET     /recipes/:id                controllers.RecipeController.retrieve(id: String)
+GET     /recipes                    controllers.RecipeController.index()
+GET     /recipes/create             controllers.RecipeController.create()
+GET     /recipes/:id                controllers.RecipeController.retrieve(id: Integer)
+GET     /recipes/edit/:id           controllers.RecipeController.edit(id: Integer)
+POST    /recipes/edit               controllers.RecipeController.update()
+POST    /recipes/create             controllers.RecipeController.save()
+GET     /recipes/delete/:id         controllers.RecipeController.destroy(id: Integer)
 
 # Shows about information of luncho's website
 GET     /about                      controllers.HomeController.about
-
-
