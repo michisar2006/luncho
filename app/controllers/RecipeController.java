@@ -1,12 +1,19 @@
 package controllers;
 
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.*;
 
 import models.Recipe;
 import views.html.recipes.*;
+
+import javax.inject.Inject;
 import java.util.Set;
 
 public class RecipeController extends Controller {
+
+    @Inject
+    FormFactory formFactory;
 
     public Result index(){
         Set<Recipe> recipes = Recipe.getAll();
@@ -18,7 +25,8 @@ public class RecipeController extends Controller {
     }
 
     public Result create(){
-        return TODO;
+        Form<Recipe> recipeForm = formFactory.form(Recipe.class);
+        return ok(create.render(recipeForm));
     }
 
     //GET edit
@@ -33,6 +41,7 @@ public class RecipeController extends Controller {
 
 
     public Result save(){
+
         return TODO;
     }
 

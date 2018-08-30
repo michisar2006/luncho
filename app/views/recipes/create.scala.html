@@ -1,0 +1,19 @@
+@(recipeForm : Form[Recipe])
+@import helper._
+
+<html>
+    <head>
+        <title>Create recipe</title>
+    </head>
+    <body>
+        <h1>Create Book</h1>
+        @helper.form(action = helper.CSRF(routes.RecipeController.save())){
+            @helper.inputText(recipeForm("id"))
+            @helper.inputText(recipeForm("title"))
+            @helper.inputText(recipeForm("price"))
+            @helper.inputText(recipeForm("author"))
+
+            <input type="submit" value="Create Recipe">
+        }
+    </body>
+</html>

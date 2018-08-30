@@ -9,6 +9,8 @@ public class Recipe {
     public String name;
     public String description;
 
+    public Recipe(){}
+
     public Recipe(Integer id, String name, String description){
         this.id=id;
         this.name=name;
