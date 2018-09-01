@@ -77,7 +77,15 @@ public class RecipeController extends Controller {
     }
 
     public Result destroy(Integer id){
-        return TODO;
+        Recipe recipe = Recipe.getById(id);
+
+        if (recipe==null){
+            return notFound("The recipe does not found");
+        }
+
+        Recipe.remove(recipe);
+
+        return redirect(routes.RecipeController.index());
     }
 
 }
