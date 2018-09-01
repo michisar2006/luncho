@@ -45,7 +45,18 @@ public class RecipeController extends Controller {
 
     //POST edit
     public Result update(){
-        return TODO;
+        Recipe recipe = formFactory.form(Recipe.class).bindFromRequest().get();
+        Recipe oldRecipe = Recipe.getById(recipe.getId());
+
+        if(oldRecipe == null){
+            return notFound("Recipe not found");
+        }
+
+        oldRecipe.setName(recipe.getName());
+        oldRecipe.setDescription(recipe.getDescription());
+
+
+        return redirect(routes.RecipeController.index());
     }
 
 
