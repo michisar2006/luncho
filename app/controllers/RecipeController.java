@@ -21,8 +21,12 @@ public class RecipeController extends Controller {
         return ok(index.render(recipes));
     }
 
-    public Result retrieve(Integer id) {
-        return TODO;
+    public Result show(Integer id) {
+        Recipe recipe = Recipe.getById(id);
+        if(recipe==null){
+            return notFound("Book not found");
+        }
+        return ok(show.render(recipe));
     }
 
     public Result create(){

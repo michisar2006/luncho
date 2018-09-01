@@ -5,7 +5,7 @@
 <ul>
     @for(recipe <- recipes){
         <li>
-            <h3>@recipe.getName()</h3>
+            <a href="@routes.RecipeController.show(recipe.getId())">@recipe.getName()</a>
             <p>@recipe.getDescription()</p>
         </li>
     }

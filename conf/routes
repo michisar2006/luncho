@@ -11,7 +11,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # Gets an specific recipe
 GET     /recipes                    controllers.RecipeController.index()
 GET     /recipes/create             controllers.RecipeController.create()
-GET     /recipes/:id                controllers.RecipeController.retrieve(id: Integer)
+GET     /recipes/:id                controllers.RecipeController.show(id: Integer)
 GET     /recipes/edit/:id           controllers.RecipeController.edit(id: Integer)
 POST    /recipes/edit               controllers.RecipeController.update()
 POST    /recipes/create             controllers.RecipeController.save()
