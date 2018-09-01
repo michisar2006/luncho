@@ -3,15 +3,15 @@
 
 <html>
     <head>
-        <title>Create recipe</title>
+        <title>Edit recipe</title>
     </head>
     <body>
-        <h1>Create Recipe</h1>
-        @helper.form(action = helper.CSRF(routes.RecipeController.save())){
+        <h1>Edit Recipe</h1>
+        @helper.form(action = helper.CSRF(routes.RecipeController.update())){
             @helper.inputText(recipeForm("id"))
             @helper.inputText(recipeForm("name"))
             @helper.inputText(recipeForm("description"))
-            <input type="submit" value="Create Recipe">
-        }
+            <input type="submit" value="Edit Recipe">
+            }
     </body>
 </html>

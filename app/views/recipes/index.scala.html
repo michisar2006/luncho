@@ -5,8 +5,8 @@
 <ul>
     @for(recipe <- recipes){
         <li>
-            <h3>@recipe.name</h3>
-            <p>@recipe.description</p>
+            <h3>@recipe.getName()</h3>
+            <p>@recipe.getDescription()</p>
         </li>
     }
 </ul>

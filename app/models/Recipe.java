@@ -5,9 +5,9 @@ import java.util.HashSet;
 
 public class Recipe {
 
-    public Integer id;
-    public String name;
-    public String description;
+    protected Integer id;
+    protected String name;
+    protected String description;
 
     public Recipe(){}
 
@@ -44,5 +44,17 @@ public class Recipe {
 
     public static boolean remove(Recipe recipe){
         return recipes.remove(recipe);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

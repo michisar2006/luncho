@@ -1,5 +1,6 @@
 package controllers;
 
+import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -31,7 +32,15 @@ public class RecipeController extends Controller {
 
     //GET edit
     public Result edit(Integer id){
-        return TODO;
+        Recipe recipe = Recipe.getById(id);
+
+        if(recipe==null){
+            return notFound("Recipe not found");
+        }
+
+        Form<Recipe> bookForm = formFactory.form(Recipe.class).fill(recipe);
+        return ok(edit.render(bookForm));
+
     }
 
     //POST edit
@@ -41,8 +50,15 @@ public class RecipeController extends Controller {
 
 
     public Result save(){
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+        Recipe recipe = new Recipe(
+                Integer.parseInt(requestData.get("id")),
+                requestData.get("name"),
+                requestData.get("description")
+        );
+        Recipe.add(recipe);
 
-        return TODO;
+        return redirect(routes.RecipeController.index());
     }
 
     public Result destroy(Integer id){
