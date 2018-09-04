@@ -1,13 +1,13 @@
 @(recipes: Set[Recipe])
-
-<h1>Recetas:</h1>
-
-<ul>
+@views.html.layout("Recipes"){
+    <ul>
     @for(recipe <- recipes){
         <li>
             <a href="@routes.RecipeController.show(recipe.getId())">@recipe.getName()</a>
             <p>@recipe.getDescription()</p>
         </li>
     }
-</ul>
+    </ul>
+}
+
 

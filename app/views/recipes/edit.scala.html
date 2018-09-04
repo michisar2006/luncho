@@ -1,17 +1,11 @@
 @(recipeForm : Form[Recipe])
 @import helper._
-
-<html>
-    <head>
-        <title>Edit recipe</title>
-    </head>
-    <body>
-        <h1>Edit Recipe</h1>
-        @helper.form(action = helper.CSRF(routes.RecipeController.update())){
-            @helper.inputText(recipeForm("id"))
-            @helper.inputText(recipeForm("name"))
-            @helper.inputText(recipeForm("description"))
-            <input type="submit" value="Edit Recipe">
-            }
-    </body>
-</html>
+@views.html.layout("Edit Recipe"){
+    <h1>Edit Recipe</h1>
+    @helper.form(action = helper.CSRF(routes.RecipeController.update())){
+        @helper.inputText(recipeForm("id"))
+        @helper.inputText(recipeForm("name"))
+        @helper.inputText(recipeForm("description"))
+        <input type="submit" value="Edit Recipe">
+    }
+}
