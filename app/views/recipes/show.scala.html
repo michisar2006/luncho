@@ -1,8 +1,0 @@
-@(recipe : Recipe)
-@views.html.layout("Recipe: "+ recipe.getName()){
-    <h2>@recipe.getName()</h2>
-    <p>@recipe.getDescription()</p>
-
-    <a href="@routes.RecipeController.edit(recipe.getId())">Editar</a>
-    <a href="@routes.RecipeController.destroy(recipe.getId())">Eliminar</a>
-}
